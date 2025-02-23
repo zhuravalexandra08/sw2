@@ -1,0 +1,180 @@
+@font-face {
+    font-family: "Death Star";
+    src: url(fonts/DeathStar-VmWB.ttf);
+}
+
+@font-face {
+    font-family: "Play";
+    src: url(fonts/Play-Bold.ttf);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Play";
+    src: url(fonts/Play-Regular.ttf);
+    font-weight: 400;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Play";
+}
+
+html {
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    font-family: "Death Star";
+    line-height: 3rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1rem;
+}
+
+body {
+    background: url(img/starsBg.png) repeat-y center/cover;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    max-width: 1400px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding: 35px 0;
+    perspective: 8rem;
+    overflow: hidden;
+    perspective-origin: 50%;
+}
+
+.header__text {
+    transform: rotateX(45deg);
+}
+
+.header__moving-part {
+    color: #F1C837;
+    font-size: 2rem;
+    line-height: 4rem;
+    max-width: 1000px;
+    margin: auto;
+
+    animation: move-text 25s linear infinite;
+}
+
+@keyframes move-text {
+    0% {
+        transform: translateY(50px);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+.toggle {
+    max-width: 1049px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    perspective: 33rem;
+}
+
+.toggle__header {
+    color: white;
+    text-align: center;
+    margin-bottom: 39px;
+}
+
+.toggle__button {
+    background-color: #51C3E7;
+    width: 293px;
+    height: 62px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 0 30px #51C3E7;
+    margin-bottom: 46px;
+}
+
+.toggle__button::before {
+    content: "Jedi";
+    font-size: 1.5rem;
+    color: white;
+    font-family: "Death Star";
+}
+
+.toggler:checked ~ .toggle__button {
+    background-color: black;
+    box-shadow: 0 0 30px #FF3333;
+}
+
+.toggler:checked ~ .toggle__button::before {
+    content: "Sith";
+}
+
+.toggler {
+    width: 293px;
+    height: 62px;
+    position: absolute;
+    top: 70px;
+    opacity: 0;
+}
+
+.toggle__content {
+    width: 100%;
+    height: 100vh;
+    border-radius: 30px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 1s;
+}
+
+.toggle__jedi {
+    background: url(img/obiwan.png) no-repeat center/cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 30px;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+
+.toggle__sith {
+    background: url(img/darthwaider.png) no-repeat center/cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg);
+    border-radius: 30px;
+}
+
+.toggler:checked ~ .toggle__content {
+    transform: rotateY(180deg);
+}
+
+.jediLogo {
+    position: absolute;
+    left: 23px;
+    top: 23px;
+}
+
+.jedi__planet-container {
+    background-color: white;
+}
